@@ -4,25 +4,10 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
-/*
-if (!score) {
-score = {
-  wins: 0,
-  losses: 0,
-  ties: 0
-}
-}
-*/
-
-//update the score when the page loads.
 updateScoreElement();
 
 let isAutoPlaying = false;
 let intervalId;
-
-//const autoPlay = () => {
-
-//};
 
 function autoPlay() {
   if (!isAutoPlaying) {
@@ -117,10 +102,7 @@ function hideConfirmationMessage() {
     .innerHTML = '';
 }
 
-//we can use playerMove as a variable
-//cause playGame have parameters of values.
 function playGame(playerMove) {
-  //saved pickComputerMove in a variable called computerMove. so as to use it here.
   const computerMove = pickComputerMove();
 
   let result = '';
@@ -163,7 +145,6 @@ function playGame(playerMove) {
 
   localStorage.setItem('score', JSON.stringify(score));
 
-  // update the score after saving in localStorage
   updateScoreElement();
 
   document.querySelector('.js-result')
